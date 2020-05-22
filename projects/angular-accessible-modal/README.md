@@ -25,10 +25,10 @@ Within your component template:
 <app-accessible-modal> 
 	// use this component tag to wrap any content
 	<h2>My Modal</h2>
-	<button appToggleAccessibleModal>Close modal</button>
+	<button appToggleAccessibleModal autofocus>Close modal</button>
 </app-accessible-modal>
 ```
-Note: developers should take care to programatically focus the first interactable element (or in certain cases, the title) of their modal content. See guidance here: https://www.w3.org/TR/wai-aria-practices-1.2/#dialog_modal
+Note: for accessibility, developers should take care to programatically focus the first interactable element of their modal content. Options include the `autofocus` attribute for certain HTML native elements, or placing the modal content inside a separate component and focusing the element in the `ngAfterViewInit` lifecycle hook. See guidance here: https://www.w3.org/TR/wai-aria-practices-1.2/#dialog_modal
 
 ## Toggle the Modal Programmatically
 Within your component's `.ts` file:
