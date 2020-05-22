@@ -1,6 +1,7 @@
 # Angular Accessible Modal
 #### An Angular modal wrapper component that aims to be fully accessible. Keyboard navigation is trapped within the modal while it is open, and the modal can be closed by pressing `escape`. Styles are customizable. 
 
+
 ## Adding to Project
 In the relevant module file (e.g., `app.module.ts`):
 ```
@@ -29,7 +30,7 @@ Within your component template:
 ```
 
 ## Toggle the Modal Programmatically
-Within your component's `.ts.` file:
+Within your component's `.ts` file:
 ```
 import { AccessibleModalService } from 'angular-accessible-modal';
 ...
