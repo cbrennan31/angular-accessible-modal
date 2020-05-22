@@ -3,3 +3,4 @@
  */
 
 export * from './lib/accessible-modal.module';
+export * from './lib/accessible-modal.service';

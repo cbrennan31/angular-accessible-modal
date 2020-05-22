@@ -1,9 +1,8 @@
 ## Angular Accessible Modal
-### An Angular modal wrapper component that aims to be fully accessible. Keyboard navigation is trapped within the modal while it is open, and the modal can be closed by pressing `escape`. Styles are customizable.
+#### An Angular modal wrapper component that aims to be fully accessible. Keyboard navigation is trapped within the modal while it is open, and the modal can be closed by pressing `escape`. Styles are customizable. 
 
-## Usage
-#### Adding to Project
-In the relevant module file (e.g., `app.module.ts`)
+## Adding to Project
+In the relevant module file (e.g., `app.module.ts`):
 ```
 import { AccessibleModalModule } from 'angular-accessible-modal';
 ...
@@ -13,26 +12,44 @@ import { AccessibleModalModule } from 'angular-accessible-modal';
   ]
 })
 ```
-#### Implementing the Modal
+
+## Implementing the Modal
 Within your component template:
 ```
-<button appToggleAccessibleModal> // use this directive to trigger modal anywhere in the app
+<button appToggleAccessibleModal> 
+	// use this directive to trigger modal
 	Open modal
 </button>
 
-<app-accessible-modal> // use this component tag to wrap any content you wish to display in the modal
+<app-accessible-modal> 
+	// use this component tag to wrap any content
 	<h2>My Modal</h2>
 	<button appToggleAccessibleModal>Close modal</button>
 </app-accessible-modal>
 ```
-#### Customizing Styles
+
+## Toggle the Modal Programmatically
+Within your component's `.ts.` file:
+```
+import { AccessibleModalService } from 'angular-accessible-modal';
+...
+constructor (private accModalService: AccessibleModalService) {}
+...
+toggleModal() {
+	this.accModalService.toggleModal()
+}
+```
+
+## Customizing Styles
 Use the `overlayStyles` input to adjust the appearance of the background. Example:
 ```
 <app-accessible-modal [overlayStyles]="{background: 'rgba(0, 0, 0, 0.5)'}">
 ```
 Use the `modalStyles` input to adjust the appearance of the modal itself. For example, if you want the modal to appear near the top of the window, rather than centered vertically:
 ```
-<app-accessible-modal [modalStyles]="{'align-self': 'inherit', 'margin-top': '20px'}">
+<app-accessible-modal 
+	[modalStyles]="{'align-self': 'inherit', 'margin-top': '20px'}"
+>
 ```
 By default, is centered vertically and horizontally using:
 ```
@@ -41,6 +58,6 @@ By default, is centered vertically and horizontally using:
 	margin: 0 auto;
 }
 ```
-#### Coming Soon
+
+## Coming Soon
 * Optional animations
-* Support for closing the modal asynchronously
