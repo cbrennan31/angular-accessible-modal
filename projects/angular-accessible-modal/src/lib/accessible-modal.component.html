@@ -1,7 +1,6 @@
 <div 
   class="backdrop"
   role="dialog" 
-  aria-modal="true"
   appToggleAccessibleModal 
   *ngIf="accessibleModalService.showModal"
   [ngStyle]="overlayStyles"
@@ -10,6 +9,7 @@
     class="modal-content"
     (click)="$event.stopPropagation()"
     [ngStyle]="modalStyles"
+    aria-modal="true"
     cdkTrapFocus
   >
     <ng-content></ng-content>
