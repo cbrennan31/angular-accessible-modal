@@ -28,6 +28,7 @@ Within your component template:
 	<button appToggleAccessibleModal>Close modal</button>
 </app-accessible-modal>
 ```
+Note: developers should take care to programatically focus the first interactable element (or in certain cases, the title) of their modal content. See guidance here: https://www.w3.org/TR/wai-aria-practices-1.2/#dialog_modal
 
 ## Toggle the Modal Programmatically
 Within your component's `.ts` file:

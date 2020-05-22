@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, ElementRef } from '@angular/core';
 
 @Injectable({
   providedIn: 'root'
@@ -6,8 +6,18 @@ import { Injectable } from '@angular/core';
 
 export class AccessibleModalService {
 	showModal: boolean = false;
+	modalTrigger: ElementRef = null;
 
-	toggleModal() {
+	toggleModal(modalTrigger?: ElementRef) {
 		this.showModal = !this.showModal;
+
+		if (this.showModal) {
+			this.modalTrigger = modalTrigger;
+			this.modalTrigger.nativeElement.blur();
+		} else {
+			this.modalTrigger.nativeElement 
+				&& this.modalTrigger.nativeElement.focus();
+			this.modalTrigger = null;
+		}
 	}
 }

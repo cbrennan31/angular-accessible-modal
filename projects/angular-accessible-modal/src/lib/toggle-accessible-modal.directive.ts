@@ -11,10 +11,13 @@ import { AccessibleModalService } from './accessible-modal.service';
 })
 
 export class ToggleAccessibleModalDirective {
-	constructor(private accessibleModalService: AccessibleModalService) {};
+	constructor(
+		private accessibleModalService: AccessibleModalService, 
+		private modalTrigger: ElementRef
+	) {};
 
 	@HostListener('click', ['$event']) onClick(event: any) {
-		this.accessibleModalService.toggleModal();
+		this.accessibleModalService.toggleModal(this.modalTrigger);
 	}
 
 	@HostListener('document:keydown', ['$event']) onKeyDown(event: KeyboardEvent) {
