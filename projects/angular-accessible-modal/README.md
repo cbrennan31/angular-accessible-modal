@@ -1,4 +1,4 @@
-## Angular Accessible Modal
+# Angular Accessible Modal
 #### An Angular modal wrapper component that aims to be fully accessible. Keyboard navigation is trapped within the modal while it is open, and the modal can be closed by pressing `escape`. Styles are customizable. 
 
 ## Adding to Project
@@ -51,7 +51,7 @@ Use the `modalStyles` input to adjust the appearance of the modal itself. For ex
 	[modalStyles]="{'align-self': 'inherit', 'margin-top': '20px'}"
 >
 ```
-By default, is centered vertically and horizontally using:
+By default, the modal is centered vertically and horizontally using:
 ```
 {
 	align-self: center; // the parent is a flex container
@@ -60,4 +60,4 @@ By default, is centered vertically and horizontally using:
 ```
 
 ## Coming Soon
-* Optional animations
+Optional animations

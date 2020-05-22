@@ -1,8 +1,10 @@
 {
   "name": "angular-accessible-modal",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "author": "Casey Brennan",
-  "description": "An accessible, flexible modal wrapper component for Angular 2+"
+  "description": "An accessible, flexible modal wrapper component for Angular 2+",
+  "homepage": "github.com/cbrennan31/angular-accessible-modal",
+  "repository": "github.com/cbrennan31/angular-accessible-modal",
   "license": "MIT",
   "keywords": ["angular", "ng", "accessible", "modal"],
   "peerDependencies": {
