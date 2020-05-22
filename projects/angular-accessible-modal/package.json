@@ -1,0 +1,11 @@
+{
+  "name": "angular-accessible-modal",
+  "version": "0.1.0",
+  "author": "Casey Brennan",
+  "license": "MIT",
+  "keywords": ["angular", "ng", "accessible", "modal"],
+  "peerDependencies": {
+    "@angular/common": "^7.2.0",
+    "@angular/core": "^7.2.0"
+  }
+}
