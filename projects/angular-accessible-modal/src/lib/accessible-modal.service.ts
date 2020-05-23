@@ -5,17 +5,20 @@ import { Injectable, ElementRef } from '@angular/core';
 })
 
 export class AccessibleModalService {
-	showModal: boolean = false;
+	modalId: string = null;
 	modalTrigger: ElementRef = null;
 
-	toggleModal(modalTrigger?: ElementRef) {
-		this.showModal = !this.showModal;
+	toggleModal(modalId: string = null, modalTrigger: ElementRef = null) {
+		this.modalId = this.modalId ? null : modalId;
 
-		if (this.showModal) {
+		if (this.modalId) {
 			this.modalTrigger = modalTrigger;
-			this.modalTrigger.nativeElement.blur();
+			this.modalTrigger
+				&& this.modalTrigger.nativeElement
+				&& this.modalTrigger.nativeElement.blur();
 		} else {
-			this.modalTrigger.nativeElement 
+			this.modalTrigger
+				&& this.modalTrigger.nativeElement 
 				&& this.modalTrigger.nativeElement.focus();
 			this.modalTrigger = null;
 		}

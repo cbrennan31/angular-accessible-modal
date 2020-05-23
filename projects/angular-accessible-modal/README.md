@@ -1,5 +1,5 @@
 # Angular Accessible Modal
-#### An Angular modal wrapper component that aims to be fully accessible. Keyboard navigation is trapped within the modal while it is open, and the modal can be closed by pressing `escape`. Styles are customizable. 
+#### An Angular modal wrapper component that aims to be fully accessible. Keyboard navigation is trapped within the modal while it is open, and the modal can be closed by pressing `escape`. Styles are customizable. Currently supports rendering one modal at a time.
 
 
 ## Adding to Project
@@ -17,20 +17,31 @@ import { AccessibleModalModule } from 'angular-accessible-modal';
 ## Implementing the Modal
 Within your component template:
 ```
-<button appToggleAccessibleModal> 
-	// use this directive to trigger modal
+<button 
+	appToggleAccessibleModal // use this directive to trigger modal
+	modalId="my-modal"
+> 
 	Open modal
 </button>
 
-<app-accessible-modal> 
+<app-accessible-modal modalId="my-modal"> 
 	// use this component tag to wrap any content
+	// make sure the modalId input matches
 	<h2>My Modal</h2>
-	<button appToggleAccessibleModal autofocus>Close modal</button>
+
+	<button 
+		appToggleAccessibleModal // modalId input not necessary to close modal
+		autofocus
+	>
+		Close modal
+	</button>
 </app-accessible-modal>
 ```
 Note: for accessibility, developers should take care to programatically focus the first interactable element of their modal content. Options include the `autofocus` attribute for certain HTML native elements, or placing the modal content inside a separate component and focusing the element in the `ngAfterViewInit` lifecycle hook. See guidance here: https://www.w3.org/TR/wai-aria-practices-1.2/#dialog_modal
 
 ## Toggle the Modal Programmatically
+Note that the directive is recommmended when a user interaction with a page element (e.g., click) *opens* the modal, since that will ensure that element retains focus when the modal closes. Another option is to pass an `ElementRef` representing the element as a second argument to the `toggleModal` method.
+
 Within your component's `.ts` file:
 ```
 import { AccessibleModalService } from 'angular-accessible-modal';
@@ -38,14 +49,17 @@ import { AccessibleModalService } from 'angular-accessible-modal';
 constructor (private accModalService: AccessibleModalService) {}
 ...
 toggleModal() {
-	this.accModalService.toggleModal()
+	this.accModalService.toggleModal('my-modal');
+	// modalId argument necessary for opening modal, optional for closing modal
 }
 ```
 
 ## Customizing Styles
 Use the `overlayStyles` input to adjust the appearance of the background. Example:
 ```
-<app-accessible-modal [overlayStyles]="{background: 'rgba(0, 0, 0, 0.5)'}">
+<app-accessible-modal 
+	[overlayStyles]="{background: 'rgba(0, 0, 0, 0.5)'}"
+>
 ```
 Use the `modalStyles` input to adjust the appearance of the modal itself. For example, if you want the modal to appear near the top of the window, rather than centered vertically:
 ```

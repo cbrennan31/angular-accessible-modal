@@ -2,8 +2,8 @@
   class="backdrop"
   role="dialog" 
   appToggleAccessibleModal 
-  *ngIf="accessibleModalService.showModal"
   [ngStyle]="overlayStyles"
+  *ngIf="modalId && accessibleModalService.modalId === modalId"
 >
   <div
     class="modal-content"

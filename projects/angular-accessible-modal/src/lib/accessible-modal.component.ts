@@ -17,6 +17,7 @@ import { AccessibleModalService } from './accessible-modal.service';
 export class AccessibleModalComponent implements OnDestroy {
   @Input() overlayStyles: any;
   @Input() modalStyles: any;
+  @Input() modalId: string;
 
   constructor (
     public renderer: Renderer2, 
