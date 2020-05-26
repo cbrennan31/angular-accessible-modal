@@ -18,24 +18,24 @@ import { AccessibleModalModule } from 'angular-accessible-modal';
 Within your component template:
 ```
 <button 
-	appToggleAccessibleModal // use this directive to trigger modal
+	acmToggleAccessibleModal // use this directive to trigger modal
 	modalId="my-modal"
 > 
 	Open modal
 </button>
 
-<app-accessible-modal modalId="my-modal"> 
+<acm-accessible-modal modalId="my-modal"> 
 	// use this component tag to wrap any content
 	// make sure the modalId input matches
 	<h2>My Modal</h2>
 
 	<button 
-		appToggleAccessibleModal // modalId input not necessary to close modal
+		acmToggleAccessibleModal // modalId input not necessary to close modal
 		autofocus
 	>
 		Close modal
 	</button>
-</app-accessible-modal>
+</acm-accessible-modal>
 ```
 Note: for accessibility, developers should take care to programatically focus the first interactable element of their modal content. Options include the `autofocus` attribute for certain HTML native elements, or placing the modal content inside a separate component and focusing the element in the `ngAfterViewInit` lifecycle hook. See guidance here: https://www.w3.org/TR/wai-aria-practices-1.2/#dialog_modal
 

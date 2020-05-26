@@ -9,7 +9,7 @@ import {
 import { AccessibleModalService } from './accessible-modal.service';
 
 @Component({
-  selector: 'app-accessible-modal',
+  selector: 'acm-accessible-modal',
   templateUrl: './accessible-modal.component.html',
   styleUrls: ['./accessible-modal.component.css']
 })

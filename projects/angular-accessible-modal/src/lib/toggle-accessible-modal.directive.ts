@@ -8,7 +8,7 @@ import {
 import { AccessibleModalService } from './accessible-modal.service';
 
 @Directive({
-  selector: '[appToggleAccessibleModal]'
+  selector: '[acmToggleAccessibleModal]'
 })
 
 export class ToggleAccessibleModalDirective {
