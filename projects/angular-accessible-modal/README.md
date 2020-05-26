@@ -57,13 +57,13 @@ toggleModal() {
 ## Customizing Styles
 Use the `overlayStyles` input to adjust the appearance of the background. Example:
 ```
-<app-accessible-modal 
+<acm-accessible-modal 
 	[overlayStyles]="{background: 'rgba(0, 0, 0, 0.5)'}"
 >
 ```
 Use the `modalStyles` input to adjust the appearance of the modal itself. For example, if you want the modal to appear near the top of the window, rather than centered vertically:
 ```
-<app-accessible-modal 
+<acm-accessible-modal 
 	[modalStyles]="{'align-self': 'inherit', 'margin-top': '20px'}"
 >
 ```
