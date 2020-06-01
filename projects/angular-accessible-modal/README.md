@@ -1,6 +1,6 @@
 # Angular Accessible Modal
 #### An Angular modal wrapper component that aims to be fully accessible. Keyboard navigation is trapped within the modal while it is open, and the modal can be closed by pressing `escape`. Styles are customizable. Currently supports rendering one modal at a time.
-
+### Version 0.1.11 fixes a bug that prevented the modal from closing when clicking the backdrop.
 
 ## Adding to Project
 In the relevant module file (e.g., `app.module.ts`):
