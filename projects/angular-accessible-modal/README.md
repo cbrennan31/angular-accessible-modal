@@ -1,6 +1,6 @@
 # Angular Accessible Modal
 #### An Angular modal wrapper component that aims to be fully accessible. Keyboard navigation is trapped within the modal while it is open, and the modal can be closed by pressing `escape`. Styles are customizable. Currently supports rendering one modal at a time.
-### Version 0.1.11 fixes a bug that prevented the modal from closing when clicking the backdrop.
+#### Version 0.1.11 fixes a bug that prevented the modal from closing when clicking the backdrop.
 
 ## Adding to Project
 In the relevant module file (e.g., `app.module.ts`):
@@ -75,5 +75,16 @@ By default, the modal is centered vertically and horizontally using:
 }
 ```
 
-## Coming Soon
-Optional animations
+## Enabling Animations
+When the modal appears, a fade in and/or a slide down effect can be enabled.
+Similarly, when the modal exits, a fade out and/or a slide up effect can be enabled.
+Example usage:
+```
+<acm-accessible-modal 
+  modalId="category-modal"
+  [entranceAnimations]="['fadeIn', 'slideDown']" // default: []
+  entranceDuration="300ms" // default: 250ms
+  [exitAnimations]="['fadeOut', 'slideUp']" // default: []
+  exitDuration="100ms" // default: 250ms
+>
+```

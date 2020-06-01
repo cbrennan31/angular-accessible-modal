@@ -3,7 +3,7 @@
   role="dialog" 
   acmToggleAccessibleModal 
   [ngStyle]="overlayStyles"
-  *ngIf="modalId && accessibleModalService.modalId === modalId"
+  *ngIf="(modalId && accessibleModalService.modalId) === modalId || mustShowOverlay"
 >
   <div
     class="modal-content"
@@ -11,6 +11,25 @@
     [ngStyle]="modalStyles"
     aria-modal="true"
     cdkTrapFocus
+    *ngIf="modalId && accessibleModalService.modalId === modalId"
+    [@entranceTrigger]="{
+      value: '',
+      params: {
+        entranceDuration: entranceDuration,
+        initialOpacity: entranceAnimations.includes('fadeIn') ? 0 : 1,
+        initialYPosition: entranceAnimations.includes('slideDown') ? 'translateY(-100px)' : 'translateY(0)'
+      }
+    }"
+    [@exitTrigger]="{
+      value: '',
+      params: {
+        exitDuration: exitDuration,
+        exitOpacity: exitAnimations.includes('fadeOut') ? 0 : 1,
+        exitYPosition: exitAnimations.includes('slideUp') ? 'translateY(-100px)' : 'translateY(0)'
+      }
+    }"
+    (@entranceTrigger.start)="mustShowOverlay = true"
+    (@exitTrigger.done)="mustShowOverlay = false"
   >
     <ng-content></ng-content>
   </div>
