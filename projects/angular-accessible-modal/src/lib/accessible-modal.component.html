@@ -1,9 +1,11 @@
-<div 
+<div
   class="backdrop"
-  role="dialog" 
-  acmToggleAccessibleModal 
+  role="dialog"
+  acmToggleAccessibleModal
   [ngStyle]="overlayStyles"
-  *ngIf="(modalId && accessibleModalService.modalId) === modalId || mustShowOverlay"
+  *ngIf="
+    (modalId && accessibleModalService.modalId) === modalId || mustShowOverlay
+  "
 >
   <div
     class="modal-content"
@@ -17,7 +19,9 @@
       params: {
         entranceDuration: entranceDuration,
         initialOpacity: entranceAnimations.includes('fadeIn') ? 0 : 1,
-        initialYPosition: entranceAnimations.includes('slideDown') ? 'translateY(-100px)' : 'translateY(0)'
+        initialYPosition: entranceAnimations.includes('slideDown')
+          ? 'translateY(-100px)'
+          : 'translateY(0)'
       }
     }"
     [@exitTrigger]="{
@@ -25,7 +29,9 @@
       params: {
         exitDuration: exitDuration,
         exitOpacity: exitAnimations.includes('fadeOut') ? 0 : 1,
-        exitYPosition: exitAnimations.includes('slideUp') ? 'translateY(-100px)' : 'translateY(0)'
+        exitYPosition: exitAnimations.includes('slideUp')
+          ? 'translateY(-100px)'
+          : 'translateY(0)'
       }
     }"
     (@entranceTrigger.start)="mustShowOverlay = true"
