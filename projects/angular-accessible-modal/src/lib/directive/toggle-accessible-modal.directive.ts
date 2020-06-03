@@ -1,6 +1,6 @@
 import { Directive, ElementRef, HostListener, Input } from "@angular/core";
 
-import { AccessibleModalService } from "./accessible-modal.service";
+import { AccessibleModalService } from "../service/accessible-modal.service";
 
 @Directive({
   selector: "[acmToggleAccessibleModal]",
@@ -9,7 +9,7 @@ export class ToggleAccessibleModalDirective {
   @Input() modalId: string;
 
   constructor(
-    private accessibleModalService: AccessibleModalService,
+    public accessibleModalService: AccessibleModalService,
     private modalTrigger: ElementRef
   ) {}
 

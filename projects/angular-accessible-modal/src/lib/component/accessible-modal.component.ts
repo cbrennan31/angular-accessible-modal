@@ -1,14 +1,8 @@
-import {
-  Component,
-  OnDestroy,
-  EventEmitter,
-  Renderer2,
-  Input,
-} from "@angular/core";
+import { Component, OnDestroy, EventEmitter, Input } from "@angular/core";
 
 import { trigger, transition, style, animate } from "@angular/animations";
 
-import { AccessibleModalService } from "./accessible-modal.service";
+import { AccessibleModalService } from "../service/accessible-modal.service";
 
 @Component({
   selector: "acm-accessible-modal",
@@ -51,14 +45,7 @@ export class AccessibleModalComponent implements OnDestroy {
 
   mustShowOverlay = false;
 
-  constructor(
-    public renderer: Renderer2,
-    public accessibleModalService: AccessibleModalService
-  ) {
-    this.renderer.setAttribute(document.body, "style", "overflow: hidden;");
-  }
+  constructor(public accessibleModalService: AccessibleModalService) {}
 
-  ngOnDestroy() {
-    this.renderer.setAttribute(document.body, "style", "overflow: auto;");
-  }
+  ngOnDestroy() {}
 }
