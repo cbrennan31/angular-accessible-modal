@@ -1,6 +1,6 @@
 {
   "name": "angular-accessible-modal",
-  "version": "0.2.3",
+  "version": "0.2.4",
   "author": "Casey Brennan",
   "description": "An accessible, flexible modal wrapper component for Angular 2+",
   "homepage": "github.com/cbrennan31/angular-accessible-modal",
